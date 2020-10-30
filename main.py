@@ -3,6 +3,7 @@ import json
 from requests_oauthlib import OAuth1Session
 import os
 from dotenv import load_dotenv
+import re
 
 load_dotenv()
 
@@ -30,4 +31,8 @@ params ={
 timeline_req = twitter.get(timeline_url, params = params, stream=True)
 if timeline_req.status_code == 200:
     res = json.loads(timeline_req.text)
-    print(res)
+    for tweet in res['statuses']:
+      if tweet['user']['id'] == 3230712428:
+        if(tweet['text'].find('\n\n') > 0 ):  #ツイート内容にタイトルが含まれているかどうか
+          print('タイトル',tweet['text'].split('\n\n')[0])
+          print('本文',tweet['text'].split('\n\n')[1])
