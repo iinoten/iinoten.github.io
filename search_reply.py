@@ -29,11 +29,14 @@ params ={
          'result_type': 'mixed',#時系列で取得
          'exclude': 'retweets'#RTされて表示されているツイートを除外
          }
-timeline_req = twitter.get(timeline_url, params = params, stream=True)
-if timeline_req.status_code == 200:
-    res = json.loads(timeline_req.text)
-    for tweet in res:
-      if(tweet['in_reply_to_status_id_str'] == '1322416478495203334'):
-        print(tweet['user']['name']+'::'+tweet['text'])
-        print(tweet['created_at'])
-        print('*******************************************')
+def get_reply_target_tweet( tweet_id ):
+  timeline_req = twitter.get(timeline_url, params = params, stream=True)
+  if timeline_req.status_code == 200:
+      res = json.loads(timeline_req.text)
+      for tweet in res:
+        if(tweet['in_reply_to_status_id_str'] == tweet_id):
+          print(tweet['user']['name']+'::'+tweet['text'])
+          print(tweet['created_at'])
+          print('*******************************************')
+
+get_reply_target_tweet('1322416478495203334')
