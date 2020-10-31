@@ -24,19 +24,21 @@ params = {'q' : '#イイノテンのブログ', "maxResults" : "10"}#取得件�
 #上記で設定したパラメーターをget関数を使い指定URLから取得
 params ={
         'screen_name': 'iinoten',
-         'count' : 10,      # 取得するtweet数
-         'q'     :  ["あ"],# 検索キーワード
+         'count' : 100,      # 取得するtweet数
          'result_type': 'mixed',#時系列で取得
          'exclude': 'retweets'#RTされて表示されているツイートを除外
          }
-def get_reply_target_tweet( tweet_id ):
+def get_reply_target_tweet( parent_tweet_id ):
   timeline_req = twitter.get(timeline_url, params = params, stream=True)
   if timeline_req.status_code == 200:
       res = json.loads(timeline_req.text)
       for tweet in res:
-        if(tweet['in_reply_to_status_id_str'] == tweet_id):
-          print(tweet['user']['name']+'::'+tweet['text'])
-          print(tweet['created_at'])
-          print('*******************************************')
+        if(tweet['in_reply_to_status_id_str'] == parent_tweet_id):
+          result_tweet_tree_text = tweet['text']
+          if(not tweet['text'] in 'おわり'):
+            result_tweet_tree_text += '\n\n' + get_reply_target_tweet( str( tweet['id'] ) )
+          return(result_tweet_tree_text)
+  else:
+    return('ほげ')
 
-get_reply_target_tweet('1322416478495203334')
+print("結果：",get_reply_target_tweet("1322470986592051206"))
