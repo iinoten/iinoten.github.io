@@ -35,9 +35,10 @@ def get_reply_target_tweet( parent_tweet_id ):
       for tweet in res:
         if(tweet['in_reply_to_status_id_str'] == parent_tweet_id):
           result_tweet_tree_text = tweet['text']
-          if(not tweet['text'] in 'おわり'):
-            result_tweet_tree_text += '\n\n' + get_reply_target_tweet( str( tweet['id'] ) )
+          result_tweet_tree_text += '\n\n' + get_reply_target_tweet( str( tweet['id'] ) )
           return(result_tweet_tree_text)
+      else:
+        return("")
   else:
     return('ほげ')
 
