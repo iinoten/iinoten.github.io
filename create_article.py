@@ -7,7 +7,7 @@ def save_article_to_remote( ):
   o.pull()
 
   #Add
-  repo.git.add(u=True)
+  repo.git.add(A=True)
   
   #Commit(サブディレクトリ含めて全て)
   repo.git.commit('-m','\"ブログ記事をCommit\"')
