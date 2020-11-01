@@ -41,5 +41,3 @@ def get_reply_target_tweet( parent_tweet_id ):
         return("")
   else:
     return('ほげ')
-
-print("結果：",get_reply_target_tweet("1322470986592051206"))

@@ -4,6 +4,7 @@ from requests_oauthlib import OAuth1Session
 import os
 from dotenv import load_dotenv
 import re
+from search_reply import get_reply_target_tweet
 
 load_dotenv()
 
@@ -34,5 +35,4 @@ if timeline_req.status_code == 200:
     for tweet in res['statuses']:
       if tweet['user']['id'] == 3230712428:
         if(tweet['text'].find('\n\n') > 0 ):  #ツイート内容にタイトルが含まれているかどうか
-          print('タイトル',tweet['text'].split('\n\n')[0])
-          print('本文',tweet['text'].split('\n\n')[1])
+          print('本文',tweet['text'].split('\n\n')[1] + '\n\n' + get_reply_target_tweet(str(tweet['id'])))
