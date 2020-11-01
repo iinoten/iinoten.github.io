@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import re
 from search_reply import get_reply_target_tweet
 from create_article import create_new_article
+from create_article import save_article_to_remote
 
 load_dotenv()
 
@@ -39,3 +40,4 @@ if timeline_req.status_code == 200:
           title = tweet['text'].split('\n\n')[0]
           content = tweet['text'].split('\n\n')[1] + '\n\n' + get_reply_target_tweet(str(tweet['id']))
           create_new_article( tweet['id'], title, content )
+          save_article_to_remote()
