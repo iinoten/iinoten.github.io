@@ -1,11 +1,15 @@
 import git
 
 def save_article_to_remote( file_name ):
-  github_url = 'https://github.com/iinoten/iinoten.github.io'
-  repo = git.Repo('./')
-  repo.git.add('./articles/'+file_name)
-  repo.index.add("ブログ記事をcommit: ",file_name)
+  repo = git.Repo()
+  #最新を取り込むため一旦Pull
+  o = repo.remotes.origin
+  o.pull()
 
+  #Commit(サブディレクトリ含めて全て)
+  repo.git.commit('.','-m','\"Commit Log\"')
+
+  #Push
   origin = repo.remote(name='origin')
   origin.push()
   
