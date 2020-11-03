@@ -38,6 +38,6 @@ if timeline_req.status_code == 200:
       if tweet['user']['id'] == 3230712428:
         if(tweet['text'].find('\n\n') > 0 ):  #ツイート内容にタイトルが含まれているかどうか
           title = tweet['text'].split('\n\n')[0]
-          content = tweet['text'].split('\n\n')[1] + '\n\n' + get_reply_target_tweet(str(tweet['id']))
+          content = '<div class="content__body--paragraph">'+tweet['text'].split('\n\n')[1]+'</div>' + '\n\n' + get_reply_target_tweet(str(tweet['id']))
           create_new_article( tweet['id'], title, content )
           save_article_to_remote()
