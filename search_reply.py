@@ -34,7 +34,11 @@ def get_reply_target_tweet( parent_tweet_id ):
       res = json.loads(timeline_req.text)
       for tweet in res:
         if(tweet['in_reply_to_status_id_str'] == parent_tweet_id):
-          result_tweet_tree_text = '<div class="content__body--paragraph">'+ tweet['text'] + '</div>'
+          img_content = ''
+          if('media' in tweet['entities']):
+            img_source = tweet['entities']['media'][0]['media_url']
+            img_content = f'<div class="content__img--Box"><img class="content__img" src="{img_source}"></div>'
+          result_tweet_tree_text = '<div class="content__body--paragraph">'+ tweet['text'] + img_content + '</div>'
           result_tweet_tree_text += '\n\n' + get_reply_target_tweet( str( tweet['id'] ) )
           return(result_tweet_tree_text)
       else:
