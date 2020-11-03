@@ -36,8 +36,11 @@ def get_reply_target_tweet( parent_tweet_id ):
         if(tweet['in_reply_to_status_id_str'] == parent_tweet_id):
           img_content = ''
           if('media' in tweet['entities']):
+            print("画像アリ")
             img_source = tweet['entities']['media'][0]['media_url']
             img_content = f'<div class="content__img--Box"><img class="content__img" src="{img_source}"></div>'
+          else: 
+            print("画像ナシ")
           result_tweet_tree_text = '<div class="content__body--paragraph">'+ tweet['text'] + img_content + '</div>'
           result_tweet_tree_text += '\n\n' + get_reply_target_tweet( str( tweet['id'] ) )
           return(result_tweet_tree_text)
