@@ -1,0 +1,120 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #D7FDF0;
+  padding: 0;
+  margin: 0;
+}
+.Header__Image--Box {
+  width: 100vw;
+}
+.Header__Image {
+  background: linear-gradient( 180deg, rgba(246, 255, 0, 0),#D7FDF0),url(./Header_image.jpg);
+  background-position: center;
+  width: 100%;
+  height: 53vw;
+  background-size: cover;
+}
+.Header__Maintitle--Box {
+  text-align: center;
+  margin-top: calc( 22vw - 24px );
+}
+.Header__Maintitle--Text {
+  color: #E9E9E9;
+  font-size: 24px;
+  font-weight: 600;
+}
+.content__title--date {
+  margin: 16px 0;
+  color: #BB8A89;
+  font-weight: 600;
+}
+.content__title--date a {
+  color: #AC7B7D !important;
+}
+.content {
+  padding: 0 16px;
+}
+.content__title--box {
+  margin: 24px 0;
+}
+.content__title--text {
+  color: #2F4858;
+  font-size: 22px;
+  font-weight: 900;
+}
+.content__body--paragraph {
+  background-color: #E8E8E7;
+  color: #2F4858;
+  padding: 16px;
+  font-weight: 400;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+.author__box {
+  margin-top: 48px;
+  text-align: center;
+}
+.author__title {
+  color: #BB8A89;
+  font-weight: 500;
+  font-size: 20px;
+}
+.author__content--box {
+  background-color: #E8E8E7;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding: 16px 0;
+  border-radius: 8px;
+}
+.author__img--box {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  text-align: center;
+  margin-left: calc(50vw - 32px);
+}
+.author__img--box img {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+.author__content--text {
+  text-align: center;
+  color: #2F4858;
+  font-size: 8px;
+  font-weight: 400;
+}
+.author__content--text a {
+  color: #AC7B7D;
+}
+.copywrite {
+  color: #AC7B7D;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+@media screen and (min-width:1024px) {
+  /*pc用のcssを記述*/
+  body{padding: 0 320px;}
+  .Header__Image--Box {
+      width: calc(100vw - 640px) !important;
+  }
+  .author__img--box {
+      margin-left: calc(50vw - 352px);
+  }
+  .Header__Maintitle--Text {
+      font-size: 54px;
+      font-weight: 600;
+  }
+  .Header__Maintitle--Box {
+      margin-top: 140px;
+  }
+  .Header__Image {
+      height: 400px;
+  }
+}
