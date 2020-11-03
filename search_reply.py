@@ -34,7 +34,7 @@ def get_reply_target_tweet( parent_tweet_id ):
       res = json.loads(timeline_req.text)
       for tweet in res:
         if(tweet['in_reply_to_status_id_str'] == parent_tweet_id):
-          result_tweet_tree_text = tweet['text']
+          result_tweet_tree_text = '<div class="content__body--paragraph">'+ tweet['text'] + '</div>'
           result_tweet_tree_text += '\n\n' + get_reply_target_tweet( str( tweet['id'] ) )
           return(result_tweet_tree_text)
       else:

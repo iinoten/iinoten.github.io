@@ -51,9 +51,7 @@ def create_new_article( number, title, content ):
                     <div class="content__title--date"> 2020.04.04   [ <a href=".">元ツイート</a> ]</div>
                 </div>
                 <div class="content__body--box">
-                    <div class="content__body--paragraph">
                         {content}
-                    </div>
                 </div>
                 <div class="author__box">
                     <div class="author__title">
