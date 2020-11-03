@@ -118,3 +118,12 @@ body {
       height: 400px;
   }
 }
+
+.content__img--Box {
+  margin-top: 24px;
+  text-align: center;
+}
+.content__img {
+  width: 90%;
+  text-align: center;
+}
