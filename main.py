@@ -36,8 +36,12 @@ if timeline_req.status_code == 200:
     res = json.loads(timeline_req.text)
     for tweet in res['statuses']:
       if tweet['user']['id'] == 3230712428:
+        img_content = ''
         if(tweet['text'].find('\n\n') > 0 ):  #ツイート内容にタイトルが含まれているかどうか
           title = tweet['text'].split('\n\n')[0]
-          content = '<div class="content__body--paragraph">'+tweet['text'].split('\n\n')[1]+'</div>' + '\n\n' + get_reply_target_tweet(str(tweet['id']))
+          if('media' in tweet['entities']):
+            img_source = tweet['entities']['media'][0]['media_url']
+            img_content = f'<div class="content__img--Box"><img class="content__img" src="{img_source}"></div>'
+          content = '<div class="content__body--paragraph">'+tweet['text'].split('\n\n')[1]+ img_content + '</div>' + '\n\n' + get_reply_target_tweet(str(tweet['id']))
           create_new_article( tweet['id'], title, content )
           save_article_to_remote()
