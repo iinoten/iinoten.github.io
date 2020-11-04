@@ -1,0 +1,60 @@
+body {
+    background: #D7FDF0;
+    padding: 0 32px;
+}
+
+.title__box {
+    background: linear-gradient(135deg, #CCF0E4 0%, #E2FFFC 100%);
+    box-shadow: -5px 5px 10px rgba(172, 198, 192, 0.2), 5px -5px 10px rgba(172, 198, 192, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(172, 198, 192, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(172, 198, 192, 0.5);
+    display: inline-flex;
+    padding: 4px 8px;
+    margin-top: 16px;
+}
+.title__text {
+    color: #6d7a92;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.blog__description--Box {
+    color: #6d7a92;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 12px;
+    margin: 48px 0 16px;
+    box-shadow: 1px 1px 2px rgba(254, 255, 255, 0.3), -1px -1px 2px rgba(176, 207, 197, 0.5), inset -5px 5px 10px rgba(176, 207, 197, 0.2), inset 5px -5px 10px rgba(176, 207, 197, 0.2), inset -5px -5px 10px rgba(254, 255, 255, 0.9), inset 5px 5px 13px rgba(176, 207, 197, 0.9);
+}
+.article__box {
+    text-decoration: none;
+    
+    display: block;
+    margin-top: 32px;
+    box-shadow: -5px 5px 10px rgba(172, 195, 192, 0.2), 5px -5px 10px rgba(172, 195, 192, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(172, 195, 192, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(172, 195, 192, 0.5);
+    padding: 16px;
+}
+.article__title {
+    color: #6d7a92;
+    font-size: 12px;
+    font-weight: 700;
+}
+.article__date {
+    color: #BB8A89;
+    display: inline-flex;
+    padding: 4px 12px;
+    margin-top: 8px;
+    box-shadow: -5px 5px 10px rgba(161, 183, 180, 0.2), 5px -5px 10px rgba(161, 183, 180, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(161, 183, 180, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(161, 183, 180, 0.5);
+}
+
+@media screen and (min-width:1024px) {
+    /*pc用のcssを記述*/
+    body{padding: 0 240px;}
+    .article__box {
+        display: table;
+        float: left;
+        margin-right: 32px;
+        margin-bottom: 40px;
+    }
+    .articles {
+        display: block;
+    }
+} 
