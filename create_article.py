@@ -18,7 +18,7 @@ def save_article_to_remote( ):
   origin.push()
   
 def create_new_article( number, title, content ):
-  set_new_article_to_index(title, '日付', title)    
+  set_new_article_to_index(title, '日付', number)    
   breaked_content = content.replace('\n\n','<br><br>')
 
   file = open( './articles/'+str(number)+'.html', 'w' )
