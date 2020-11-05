@@ -26,7 +26,7 @@ params = {'q' : '#イイノテンのブログ', "maxResults" : "100"}#取得件�
 
 #上記で設定したパラメーターをget関数を使い指定URLから取得
 params ={
-         'count' : 1000,      # 取得するtweet数
+         'count' : 50,      # 取得するtweet数
          'q'     :  ["#イイノテンのブログ"],# 検索キーワード
          'result_type': 'mixed',#時系列で取得
          'exclude': 'retweets'#RTされて表示されているツイートを除外
