@@ -49,9 +49,9 @@ def create_new_article( number, title, content ):
             <div class="content">
                 <div class="content__title--box">
                     <div class="content__title--text">
-                        {title + " "}
+                        {title + ""}
                     </div>
-                    <div class="content__title--date"> 2020.04.04   [ <a href=".">元ツイート</a> ]</div>
+                    <div class="content__title--date"> 2020.04.04   [ <a target="_blank" href="https://twitter.com/iinoten/status/{number}">元ツイート</a> ]</div>
                 </div>
                 <div class="content__body--box">
                         {content}
