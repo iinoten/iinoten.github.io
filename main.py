@@ -31,6 +31,30 @@ params ={
          'result_type': 'mixed',#時系列で取得
          'exclude': 'retweets'#RTされて表示されているツイートを除外
          }
+write_file = open('index.html', 'w')
+write_file.write(
+    """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="blog__description--Box">
+            <div class="blog__description--text">このブログは、Twitterで特定のハッシュタグに反応して、botが内容を取得しブログ形式でまとめられています。</div>
+        </div>
+        <div class="title__box">
+            <div class="title__text">記事一覧</div>
+        </div>
+        <div id="empty__element"></div>
+    </body>
+    </html>
+    
+    """
+  )
 timeline_req = twitter.get(timeline_url, params = params, stream=True)
 if timeline_req.status_code == 200:
     res = json.loads(timeline_req.text)
